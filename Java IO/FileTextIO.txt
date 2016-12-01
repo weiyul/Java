@@ -1,0 +1,3 @@
+this is the test
+To input line from a file to another file
+end of the file
