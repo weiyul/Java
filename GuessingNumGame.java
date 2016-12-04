@@ -4,7 +4,28 @@
 import java.util.Scanner;
 
 public class GuessingNumGame {
-	
+	public GuessingNumGame (){
+
+		int randomNum=this.getBaseNum();
+		String result="";
+		int count=1;
+		int guessingNum=0;
+		Scanner in = new Scanner(System.in);
+		while(guessingNum!=randomNum){
+			System.out.println("Enter 4 digits:");
+			guessingNum = in.nextInt();
+			
+			while(!this.varifyInput(guessingNum)){
+				
+				guessingNum = in.nextInt();
+			}
+		
+			result=this.compareGuessing(guessingNum, randomNum);
+			System.out.println("#"+count+" guessing. You have: "+result);
+			count++;
+		}
+		System.out.println("Congraduation, after "+count+" trials, you got the correct answer:"+randomNum);
+	}
 	public int getBaseNum(){
 		
 		long r=Math.round(Math.random()*10000);//get a random number from 0000~9999 for guessing
@@ -23,7 +44,10 @@ public class GuessingNumGame {
 	
 	public boolean varifyInput(int input){
 		
-		if(input<1000||this.repeatDigit(input)){
+		if(input<1000){
+			System.out.println("the first digit must from 1 to 9");
+			return false;
+		}else if(this.repeatDigit(input)){
 			System.out.println("please enter 4 digits number without repetition:");
 			return false;
 		}
@@ -98,6 +122,7 @@ public class GuessingNumGame {
 
 		
 		GuessingNumGame play1=new GuessingNumGame();
+/*
 		int randomNum=play1.getBaseNum();
 		String result="";
 		int count=1;
@@ -117,6 +142,7 @@ public class GuessingNumGame {
 			count++;
 		}
 		System.out.println("Congraduation, after "+count+" trials, you got the correct answer:"+randomNum);
+*/
 	}
 
 
