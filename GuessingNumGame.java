@@ -1,6 +1,7 @@
 // Author: Wei-Yu Liao
 // 2014/5/2
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GuessingNumGame {
@@ -12,8 +13,17 @@ public class GuessingNumGame {
 		int guessingNum=0;
 		Scanner in = new Scanner(System.in);
 		while(guessingNum!=randomNum){
-			System.out.println("Enter 4 digits:");
-			guessingNum = in.nextInt();
+			System.out.println("Enter 4 digits or Enter 0 to exit:");
+			
+			try{
+				guessingNum = in.nextInt();
+			}catch(InputMismatchException e){
+				System.out.println("Must enter intergers only. Exit!");
+			}
+			
+			if(guessingNum == 0){
+				return;
+			}
 			
 			while(!this.varifyInput(guessingNum)){
 				
