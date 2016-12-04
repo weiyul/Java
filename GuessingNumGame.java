@@ -1,4 +1,5 @@
-package game;
+// Author: Wei-Yu Liao
+// 2014/5/2
 
 public class GuessingNumGame {
 	
@@ -90,7 +91,33 @@ public class GuessingNumGame {
 		
 	}
 	
-	
+	public static void main(String[] args) {
+		
+
+		
+		GuessingNumGame play1=new GuessingNumGame();
+		int randomNum=play1.getBaseNum();
+		String result="";
+		int count=1;
+		int guessingNum=0;
+		Scanner in = new Scanner(System.in);
+		while(guessingNum!=randomNum){
+			System.out.println("Enter 4 digits:");
+			guessingNum = in.nextInt();
+			
+			while(!play1.varifyInput(guessingNum)){
+				
+				guessingNum = in.nextInt();
+			}
+		
+			result=play1.compareGuessing(guessingNum, randomNum);
+			System.out.println("#"+count+" guessing. You have: "+result);
+			count++;
+		}
+		System.out.println("Congraduation, after "+count+" trials, you got the correct answer:"+randomNum);
+	}
 
 
 }
+
+
