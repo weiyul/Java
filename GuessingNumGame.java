@@ -1,6 +1,8 @@
 // Author: Wei-Yu Liao
 // 2014/5/2
 
+import java.util.Scanner;
+
 public class GuessingNumGame {
 	
 	public int getBaseNum(){
