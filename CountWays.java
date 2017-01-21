@@ -18,7 +18,7 @@ public class CountWays {
 		for(int i=0; i<=step; i++){
 			map.add(-1);
 		}
-		System.out.println("n=3, method of dynamic programming: "+CountWays.countWaysDP(3, map));
+		System.out.println("n=3, method of dynamic programming: "+CountWays.countWaysDP(step, map));
 		
 
 	}
