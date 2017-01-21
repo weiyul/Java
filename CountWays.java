@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 
 //Solution from Cracking the Coding Interview 5th edition
 //Recursion and Dynamic Programming 
@@ -8,27 +10,32 @@
 public class CountWays {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		int step = 3;
 		CountWays c= new CountWays();
-		System.out.println("n=3, method of fibonacci: "+c.countWays(3));// 3 steps, there are 4 wayss
-		int[] map ={-1,-1,-1,-1};//since n =3
+		System.out.println("n=3, method of fibonacci: "+c.countWays(step));// 3 steps, there are 4 wayss
+		ArrayList<Integer> map= new ArrayList<>();
+		//initialize the array
+		for(int i=0; i<=step; i++){
+			map.add(-1);
+		}
 		System.out.println("n=3, method of dynamic programming: "+CountWays.countWaysDP(3, map));
 		
 
 	}
 	
 	//Dynamic programming, store vale in each calculation to avoid unnecessary repeatedly calling of the same values as fibonacci maehod
-	public static int countWaysDP(int n, int[] map){
+	public static int countWaysDP(int n, ArrayList<Integer> map){
 		if(n<0){
 			return 0;
 		}else if(n==0){
 			return 1;
-		}else if (map[n]>-1){
-			return map[n];
+		}else if (map.get(n)> -1){
+			return map.get(n);
 		}else{
-			map[n] = countWaysDP(n-1, map)+ 
+			map.add(n, countWaysDP(n-1, map)+ 
 					countWaysDP(n-2, map)+
-					countWaysDP(n-3, map);
-			return map[n];
+					countWaysDP(n-3, map));
+			return map.get(n);
 		}
 	}
 	
