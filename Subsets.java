@@ -8,7 +8,7 @@ public class Subsets {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ArrayList<Integer> set= new ArrayList<>();
-		set.add(34);
+		set.add(34); 
 		set.add(33);
 		set.add(32);
 		set.add(31);
@@ -16,8 +16,8 @@ public class Subsets {
 		System.out.println(set.toString());
 		System.out.println();
 		Subsets test = new Subsets();
-		System.out.println("Let us see the calcualtion of the subsets:");
-		ArrayList<ArrayList<Integer>> allsubsets =test.getSubsets(set, 0);// index must be 0
+		System.out.println("Let us see the calcualtion of the subsets by recurssive method:");
+		ArrayList<ArrayList<Integer>> allsubsets =test.getSubsetsByRecurssive(set, 0);// index must be 0
 		System.out.println();
 		System.out.println("Showing the result...");
 		System.out.println("all "+allsubsets.size() +" subsets:");
@@ -32,14 +32,14 @@ public class Subsets {
 		
 	}
 	
-	ArrayList<ArrayList<Integer>> getSubsets(ArrayList<Integer> set, int index){
+	ArrayList<ArrayList<Integer>> getSubsetsByRecurssive(ArrayList<Integer> set, int index){
 		ArrayList<ArrayList<Integer>> allsubsets;
 		if(set.size()==index){
 			allsubsets = new ArrayList<ArrayList<Integer>>();
 			allsubsets.add(new ArrayList<Integer>());// Empty set
 			System.out.println("index: "+ index+ " and I am base set: "+ allsubsets.toString());
 		}else{
-			allsubsets = getSubsets(set, index+1);
+			allsubsets = getSubsetsByRecurssive(set, index+1);
 			System.out.println();
 			System.out.println("index: "+ index+ " and the input set: "+allsubsets.toString());
 
