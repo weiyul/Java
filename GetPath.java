@@ -14,27 +14,16 @@ public class GetPath {
 		// TODO Auto-generated method stub
 		GetPath Gp=new GetPath();
 		ArrayList<Point> path = new ArrayList<>();
-		Point p1= new Point(0,0);
-		Point p2 = new Point(1,0);
-		Point p3 = new Point(0,1);
-		Point p4 = new Point(1,1);
-		Point p5 = new Point(2,0);
-		Point p6 = new Point(3,0);
-		
-		path.add(p1);
-		path.add(p2);
-		path.add(p3);
-		path.add(p4);
-		path.add(p5);
-		path.add(p6);
+
+	
+		//System.out.println("final result: "+Gp.getPath(0, 0, path));
+		System.out.println("final result: "+Gp.getPath(2, 2, path));
 
 		System.out.println("Show points on path");
 		for(Point p: path){
 			System.out.println("("+p.getX()+", "+p.getY()+")");
 		
 		}
-	
-		System.out.println("final result: "+Gp.getPath(3, 0, path));
 
 
 	}
@@ -73,10 +62,10 @@ public class GetPath {
 		return success;
 	}
 	
-	//check the if x>=0, y>=0, or encounter any unaccess point
+	//check the if x>=0, y>=0, or encounter any unaccessed point
 	private boolean isFree(int x, int y){
 		boolean free=true;
-		Point unAcessP1 = new Point(1,0);
+		Point unAcessP1 = new Point(2,1);
 		if(x <0 || y<0 ){
 			free =false;
 		}
