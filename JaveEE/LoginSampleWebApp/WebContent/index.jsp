@@ -6,24 +6,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login</title>
 </head>
-<%
-	String errMsg = null;
-	//first check whether the form was submitted
-	if("POST".equalsIgnoreCase(request.getMethod()) && request.getParameter("submit")!= null){
-		//form was submitted
-		String userName = request.getParameter("userName");
-		String password = request.getParameter("password");
-		if("admin".equalsIgnoreCase(userName)&& "admin".equalsIgnoreCase(password)){
-			//valid user
-			out.println("Welcome admin!");
-			return;
-		}else{
-			//invalid user. Set error message
-			errMsg ="Invalid user id or password. Please try again";
-		}	
-	}		
+	<%String errMsg = null; %>
+	<%//first check whether the form was submitted
+	if("POST".equalsIgnoreCase(request.getMethod()) && request.getParameter("submit")!= null){ %>
+		<jsp:useBean id="loginBean" class="packt.book.jee_eclipse.ch2.bean.LoginBean">
+			<jsp:setProperty name="loginBean" property="*"/>
+		</jsp:useBean>
+		<%
+			if(loginBean.isValidUser()){
+				//valid user
+				out.println("<h2>Welcome admin !</h2>");
+				out.println("You are successfully logged in");
+			}else{
+				errMsg ="Invalid user id or password. Please try again";
+			}
+		 %>
+	
+		<%} %>
 
- %>
+
 <body>
 	<h2>Login</h2>
 	<!-- Check error message. It it is set, then display it -->
