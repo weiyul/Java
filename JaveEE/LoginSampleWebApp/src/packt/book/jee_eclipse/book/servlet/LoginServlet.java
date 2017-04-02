@@ -36,8 +36,23 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		//We first get the username and the password from the request object by calling the request.getParameter method. If the credentials are valid, 
+		//we add a welcome message to the response string; else, we call createForm with an error message and add a return value(markup for the form) to the response string
+		String userName = request.getParameter("userName");
+		String password = request.getParameter("password");
+		
+		//create StringBuilder to hold response string
+		StringBuilder responseStr = new StringBuilder();
+		if("admin".equals(userName) && "admin".equals(password)){
+			responseStr.append("<h2>Welcome admin !</h2>").append("You are successfully logged in");
+			
+		}else{
+			//invalid user credentials
+			responseStr.append(createForm("Invalid user id or password. Please try again"));
+		}
+		
+		response.getWriter().write(responseStr.toString());
 	}
 	
 	protected String createForm(String errMsg){
