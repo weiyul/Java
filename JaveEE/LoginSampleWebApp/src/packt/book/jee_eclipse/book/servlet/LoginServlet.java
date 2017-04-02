@@ -27,6 +27,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("text/html");
 		response.getWriter().write(createForm(null));
 		//We call the getWrite method on the response object and write the form content to it by calling the createForm 
 		//function. Note that when we display the form, initially, there is no error message, so we pass a null argument to create form
@@ -51,7 +52,7 @@ public class LoginServlet extends HttpServlet {
 			//invalid user credentials
 			responseStr.append(createForm("Invalid user id or password. Please try again"));
 		}
-		
+		response.setContentType("text/html");
 		response.getWriter().write(responseStr.toString());
 	}
 	
@@ -59,9 +60,9 @@ public class LoginServlet extends HttpServlet {
 		StringBuilder sb = new StringBuilder("<h2>Login</h2>");
 		//check whether error message is to be displayed
 		if(errMsg != null){
-			sb.append("span style='color: red;'>")
+			sb.append("<span style='color: red;'>")
 			.append(errMsg)
-			.append("</xpan>");
+			.append("</span>");
 		}
 		//create form
 		sb.append("<form method = 'post'>\n")
