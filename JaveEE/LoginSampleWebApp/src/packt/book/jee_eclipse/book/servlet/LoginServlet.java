@@ -27,7 +27,9 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().write(createForm(null));
+		//We call the getWrite method on the response object and write the form content to it by calling the createForm 
+		//function. Note that when we display the form, initially, there is no error message, so we pass a null argument to create form
 	}
 
 	/**
