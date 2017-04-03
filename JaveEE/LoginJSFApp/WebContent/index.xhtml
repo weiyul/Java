@@ -1,0 +1,33 @@
+<html
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+	
+	
+<HEAD>
+	<title>Login</title>
+</HEAD>	
+<BODY>
+	<H2>Login</H2>
+	<!-- Here, we use a tag specific to JSF and expression language to display the value of the error message. The OutputText tag is similar to the c:out tag that we saw in JSTL. We have also added a condition to render it only if the error message in the managed bean is not null. Additionally, we have set the color of this output text. -->
+	<h:outputText value="#{loginBean.errorMsg}" rendered="#{loginBean.errorMsg !=null}" style="color:red;"></h:outputText>
+	<h:form>
+		User Name: <h:inputText id="userName" value="#{loginBean.userName}"/><br/>
+		Password: <h:inputSecret id="password" value="#{loginBean.password}"/><br/>
+		<h:commandButton value="Submit" action="#{loginBean.validate}"/>
+	</h:form>
+</BODY>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>
