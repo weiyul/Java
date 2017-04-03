@@ -1,1 +1,1 @@
-make sure includes &gt welcome-file>index.xhtml</welcome-file>
+make sure includes&lt;welcome-file>index.xhtml&lt;/welcome-file>
