@@ -1,0 +1,18 @@
+Extracted some contents from Java EE Development with Eclipse-Second Edition by Ram Kulkarni
+
+In general, it is a bad idea to ahve scriplets(Java code) in JSP. It is recommended that JSP contains mostly markup tags so that it is easy for a designer to work on page design. The Java code should be in separate classes. 
+
+You can delegate the processing of the business logic to JavaBeans from JSP. JavaBeans are simple Java objects with attributes and getters and seter for these objects. The naming convention for a getter/setter in JavaBeans is to get/set followed by the name of the attribute, with the first letter of each word in uppercase, also known as CamelCase.
+
+JSP has a special tag for using JavaBeans - jsp: useBean:
+
+<jsp:useBean id="name_of_variable" class="name_of_bean_class" scope="scope_of_bean"/>
+
+Scope indicates the lifetime of this bean. Valid values are application, page, request, and session.
+
+page: Bean can be used only in the current page.
+request: Bean can be used in any page in the processing of the same request. One JSP request can be handled by multiple JSPs if one page forwards the request to another page. 
+
+session: Bean can be used in the same HTTP session. The session is useful if your application wants to save the user data per interaction with the application, for example, to save items in the shopping cart in an online store application. 
+
+application: Bean can be used in any page in the same web application. Typically, web applications are deployed in a web application container as Web Application Archive(WAR)files. In the application scope, all JSPs in a WAR file can use JavaBean within this scope. 
