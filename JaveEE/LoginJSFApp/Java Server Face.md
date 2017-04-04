@@ -1,4 +1,4 @@
-Extract some contents from Java EE Development with Eclipse-Second Edition by Ram Kulkarni
+Extracted some contents from Java EE Development with Eclipse-Second Edition by Ram Kulkarni
 
 Java Server Faces
 
@@ -58,6 +58,8 @@ public class LoginBean{
 	}
 }
 
+Note: we access the managed bean in JSF by using the value of the name attribute of the ManagedBean annotation. Further, unlike JavaBean in JSP, we do not create it by using the <jsp:useBean> tag. The JSF runtime creates the bean if it is not already there in the required scope, in this case, the Request scope.
+
 6. Create a new file called index.xhtml inside the WebContent folder of the project. When using JSF, you need to add a few namespace declarations at the top of the file.
 
 <html
@@ -73,3 +75,5 @@ public class LoginBean{
 </BODY>
 
 .....
+
+
